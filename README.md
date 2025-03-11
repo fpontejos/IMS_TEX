@@ -1,5 +1,7 @@
 # Important Note About This Template
 
+***This times out on Overleaf***
+
 This LaTeX template was implemented to the best of my ability to be as close as possible to the given Word templates. There may be some differences; please consult your professors/supervisors in case there are any issues or discrepancies.
 
 Some features are still to be implemented in future updates.
@@ -9,6 +11,18 @@ If you encounter any problems or have suggestions for improvements, please open 
 This was heavily inspired by the work of https://github.com/joaomlourenco/novathesis/ ; the file structure and organization is similar however the latex code itself was started from scratch.
 
 ## Usage Guidelines
+
+Make sure you compile using `LuaLaTeX`:
+
+Click on the Menu button on Overleaf:
+
+![LuaLaTeX](./_docs/img/overleaf-menu.png)
+
+Select LuaLaTeX:
+
+![LuaLaTeX](./_docs/img/overleaf-lualatex.png)
+
+
 
 ### Important - What to Modify
 
