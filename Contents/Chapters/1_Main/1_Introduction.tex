@@ -1,0 +1,117 @@
+\chapter{Introduction}
+
+
+Introduction
+
+Example of a citation in parentheses \parencite{example2022}.
+
+\blindtext
+
+Example of an inline citation \cite{einstein}. This is in a second bib file.
+
+You can also add equations such as Equation \ref{eq:emc}, some algorithms (\ref{alg:bubble}).
+
+\begin{equation}
+    E = mc^2
+    \label{eq:emc}
+\end{equation}
+
+
+\begin{algorithm}
+    \caption{Bubble Sort Algorithm}
+    \label{alg:bubble}
+    \begin{algorithmic}[1]
+        \STATE \textbf{Input:} An array $A$ of length $n$
+        \STATE \textbf{Output:} Sorted array $A$
+        \FOR{$i = 1$ to $n-1$}
+            \FOR{$j = 1$ to $n-i$}
+                \IF{$A[j] > A[j+1]$}
+                    \STATE Swap $A[j]$ and $A[j+1]$
+                \ENDIF
+            \ENDFOR
+        \ENDFOR
+        \RETURN $A$
+    \end{algorithmic}
+\end{algorithm}
+
+You can also have some code listings: (See \url{https://www.overleaf.com/learn/latex/Code_listing} for documentation).
+
+\begin{lstlisting}[language=Python, caption=Example Listing]
+# This is a simple Python function
+def greet(name):
+    print("Hello, " + name + "!")
+
+# Call the function
+greet("Alice")
+\end{lstlisting}
+
+
+\section{Section 1}
+
+Here is an image of Figure \ref{fig:nova-logo}. There is also a basic table here, Table \ref{tab:example}
+
+
+
+\blindtext
+
+
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=.35\textwidth]{Contents/Chapters/1_Main/figures/nova-ims-logo.png}
+        \label{fig:nova-logo}
+        \caption{This is the logo of the university.}
+    \end{center}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Example of a basic LaTeX table. Note the caption is on top.}
+
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Column 1 & Column 2 & Column 3 & Column 4 & Column 5 \\
+        \hline
+        A1 & B1 & C1 & D1 & E1 \\
+        A2 & B2 & C2 & D2 & E2 \\
+        A3 & B3 & C3 & D3 & E3 \\
+        A4 & B4 & C4 & D4 & E4 \\
+        A5 & B5 & C5 & D5 & E5 \\
+        A6 & B6 & C6 & D6 & E6 \\
+        A7 & B7 & C7 & D7 & E7 \\
+        A8 & B8 & C8 & D8 & E8 \\
+        \hline
+    \end{tabular}
+    \label{tab:example}
+\end{table}
+
+
+\section{Section 2}
+
+And now some lists!
+
+An unnumbered list:
+
+% Unnumbered list
+\begin{itemize}
+    \item Apples
+    \item Bananas
+    \item Cherries
+\end{itemize}
+
+And a numbered list:
+
+% Numbered list
+\begin{enumerate}
+    \item First item
+    \item Second item
+    \item Third item
+\end{enumerate}
+
+\blindtext
+
+
+\subsection{Sub-Section 2-1: Examples of abbreviations}
+
+\Gls{IR} plays a crucial role in many modern applications, including search engines and digital libraries. With the rise of \glspl{LLM}, the efficiency and accuracy of \gls{IR} systems have significantly improved. Similarly, \glspl{RS} have benefited from advancements in deep learning, providing personalized recommendations based on user preferences.
+
+\blindtext

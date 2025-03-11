@@ -1,0 +1,64 @@
+\documentclass{imsthesis}
+
+% Set thesis options using the new command
+\setthesisoptions{
+  author={Student's Full Name},
+  title={Full Title of the Thesis},
+  subtitle={An optional subtitle can be added},
+  supervisor={Supervisor's name, academic title (PhD; etc), Academic institution or School affiliation of the supervisor},
+  programacronym={MDSAA},
+  programfullname={Data Science and Advanced Analytics},
+  programspecialization={Business Analytics},
+  sdgvalues={4,9,13},
+  keywords={Information Management; Research Methods; Data Analysis; Methodology},
+  language={EN},
+  date={10-03-2025}, % DD-MM-YYYY format
+  draft=true,
+  worktype={Master Thesis}
+}
+
+\usepackage{blindtext}
+
+
+% % BIB
+\addbibresource{Bibliography/example.bib}
+\addbibresource{Bibliography/another.bib}
+
+
+\imspreamble
+
+
+{}
+
+\begin{document}
+
+\frontmatter
+
+\imspagecover
+
+\imspagetitle
+
+\imspagefront
+
+\input{Contents/0_FrontChapters}
+
+\imspagekeyws
+
+\imspagebegin
+
+\mainmatter
+
+
+
+
+\input{Contents/1_MainChapters}
+
+\backmatter
+
+\printbibliography[heading=bibintoc]
+
+\input{Contents/2_BackChapters}
+
+\imspageback
+
+\end{document}

@@ -1,0 +1,67 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{imscommands}[2025/03/01 Nova IMS Thesis Custom Commands]
+
+
+\newcommand{\MONTH}{%
+  \ifcase\month% 0
+    \or January% 1
+    \or February% 2
+    \or March% 3
+    \or April% 4
+    \or May% 5
+    \or June% 6
+    \or July% 7
+    \or August% 8
+    \or September% 9
+    \or October% 10
+    \or November% 11
+    \or December% 12
+  \fi}
+
+  \newcommand{\YEAR}{\number\year}
+
+
+
+  % Extract the components
+  \newcommand{\extractdate}[1]{%
+      \expandafter\extractdatehelper#1 \relax
+  }
+  
+  \def\extractdatehelper#1 #2, #3\relax{%
+      \def\papermonth{#1}%
+      \def\paperday{#2}%
+      \def\paperyear{#3}%
+  }
+
+\newcommand{\novathree}[7]{
+    { \fontsize{#3}{0} \node[font=\bfseries\sffamily, text=#2, align=center] (nline1) at ($(current page.center)+(0cm,#1)$){NOVA Information Management School};}
+    { \fontsize{#5}{0} \node[align=center, font=\bfseries\sffamily, below = of nline1, text=#2, yshift=#4] (nline2) {Instituto Superior de Estatística e Gestão de Informação};}
+    { \fontsize{#7}{0} \node[align=center, below = of nline2, text=#2, yshift=#6] (nline3) {Universidade Nova de Lisboa};}
+}
+
+
+\renewcommand\chapterlinesformat[3]{%
+\MakeUppercase{#2}%
+\MakeUppercase{#3}%
+}
+
+
+\providecommand\annotapx[1]{
+\setcounter{table}{0}
+\renewcommand{\thetable}{#1\arabic{table}}
+\setcounter{lstlisting}{0}
+\renewcommand{\thelstlisting}{#1\arabic{lstlisting}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{#1\arabic{figure}}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{#1\arabic{equation}}
+\setcounter{algorithm}{0}
+\renewcommand{\thealgorithm}{#1\arabic{algorithm}}
+}
+
+
+
+\renewcommand\chapterlinesformat[3]{%
+\MakeUppercase{#2}%
+\MakeUppercase{#3}%
+}

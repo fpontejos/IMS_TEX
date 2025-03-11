@@ -1,0 +1,294 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{imspages}[2025/03/01 Nova IMS Thesis Custom Pages]
+
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+
+\RequirePackage{xcolor}
+\definecolor{frontgrey}{HTML}{5c666c}
+\definecolor{frontgreylight}{HTML}{AEB3B2}
+
+\RequirePackage{fontspec}
+\newfontfamily{\arial}{Arial}
+
+\RequirePackage[automark]{scrlayer-scrpage}
+\RequirePackage{_setup/imscommands}
+
+
+
+\newcommand{\imspreamble}{
+
+    \title{\papertitle}
+    \author{\paperauthor}
+    \date{\paperdate}
+
+
+    \input{Contents/Chapters/0_Frontmatter/0_Glossaries}
+
+    \hypersetup{ 
+            pdfauthor={\paperauthor},
+            pdftitle={\papertitle}
+            %pdfsubject={},
+            %pdfkeywords={},
+            }
+
+
+    \frenchspacing
+    \raggedbottom
+    \pagestyle{plain}
+        
+}
+
+\newcommand{\imspagecover}{
+    \thispagestyle{empty}
+
+    \begin{tikzpicture}[remember picture,overlay]
+
+
+        \node[inner sep=0pt] at (current page.center){
+            \includegraphics[
+                width=\paperwidth,
+                height=\paperheight
+            ]{_setup/_images/FrontCoverBG.png}
+        };
+
+
+
+        {\fontsize{140}{120} \arial
+        \node[
+            align=center,
+        ] (Title1) at ($(current page.center)+(0.65cm,6.95cm)$){
+            \textcolor{frontgrey}{{\textbf{\paperprogramacronym}}}
+        };
+        }
+
+        % Node Text
+        { \fontsize{18}{20}\selectfont
+        \node[
+            align=center
+        ] (mestrado) at ($(current page.center)+(0.05cm,3.3cm)$){
+            \textcolor{frontgrey}{Mestrado em}
+        };
+        }
+        { \fontsize{18}{20}\selectfont
+        \node[
+            align=center
+        ] (program) at ($(current page.center)+(0.05cm,2.05cm)$){
+            \textcolor{frontgrey}{\textbf{\paperprogramfullname}}
+        };
+        }
+
+        { \fontsize{17}{17}\selectfont
+        \node[
+            align=flush center,
+            anchor=north,
+            text width=18cm
+        ] (Title2) at ($(current page.center)+(0cm,-4pt)$){  % \textheight)$){ 
+            \textcolor{frontgrey}{\uppercase{\textbf{\papertitle}}}};
+        }
+
+        { \fontsize{16}{16}\selectfont
+        \node[
+            align=flush center,
+            anchor=north,
+            below of = Title2,
+            yshift=6pt,
+            text width=18cm
+        ] (subtitle) {\textcolor{frontgreylight}{\papersubtitle}};
+        }
+
+        % Node Text
+        { \fontsize{15}{20} \selectfont
+        \node[
+            align=center,
+            below of = subtitle,
+            yshift=-4pt
+        ] (Title4)
+        {\textcolor{frontgrey}{\paperauthor}};
+        }
+
+        % Node Text
+        { \fontsize{14}{18}\selectfont
+        \node[
+            align=flush center,
+            text=frontgrey
+        ] (masterwork) at ($(current page.south)+(0cm,8.cm)$){\paperworktype};
+        }
+
+        % Node Text
+        { \fontsize{9}{18}\selectfont
+        \node[
+            align=flush center, below of = masterwork,
+            yshift=2pt,
+            text=frontgrey
+        ] (presentedas) {presented as partial requirement for obtaining a
+            Master's Degree in \paperprogramfullname};
+        }
+        \novathree{-10.85cm}{frontgrey}{12}{30pt}{12}{27pt}{10}
+
+
+    \end{tikzpicture}
+
+}
+
+\newcommand{\imspagetitle}{
+
+    \begin{titlepage}
+        \begin{tikzpicture}[remember picture,overlay]
+            \novathree{12.cm}{black}{12}{29pt}{12}{29pt}{11}
+        \end{tikzpicture}
+
+        \centering {
+
+            \vspace{76pt}
+
+            \fontsize{12}{-8}\selectfont%
+
+            {%\setstretch{1.15}
+                \textbf{\papertitle}}
+
+            \vspace{4pt}
+
+            {\papersubtitle}
+
+            \vspace{30pt}
+
+            {{by}\par}
+
+            \vspace{2pt}
+
+            {{\paperauthor}\par}
+
+            \begin{tikzpicture}[remember picture,overlay]
+                { \fontsize{12}{18} \selectfont
+                    \node[
+                        align=justify,
+                        text width=\textwidth
+                    ] (presentedtext) at ($(current page.center)+(0cm,-.5cm)$){
+                        {\paperworktype\
+                                presented as partial requirement for obtaining the
+                                Master's degree in \paperprogramfullname,
+                                with a specialization in \paperprogramspecialization}
+                    };
+                }
+
+                { \fontsize{14}{14} \selectfont
+                    \node[
+                        align=center,
+                        % draw, 
+                        text width=\textwidth
+                    ] (supervisedby) at ($(current page.center)+(0cm,-3cm)$){
+                        {\textbf{Supervised by}}
+                    };
+                }
+
+                { \fontsize{12}{18}
+                    \node[
+                        align=flush center,
+                        below of = supervisedby,
+                        yshift=-8pt,
+                        minimum width=\textwidth,
+                        text width=\textwidth
+                    ] (supervisor){\papersupervisor};
+                }
+
+                { \fontsize{12}{18}\selectfont
+                    \node[
+                        align=flush center,
+                        below of = supervisedby,
+                        yshift=-8pt,
+                        minimum width=\textwidth,
+                        text width=\textwidth
+                    ] (monthyear) at ($(current page.south)+(0cm,4.9cm)$) { {\MONTH, \the\year \par}};
+                }
+
+            \end{tikzpicture}
+
+        }
+
+
+    \end{titlepage}
+}
+
+
+\newcommand{\imspagefront}{
+
+    \setlength{\parskip}{6bp}
+
+    \linespread{1.1}\fontsize{12bp}{16bp}\selectfont
+
+}
+
+\newcommand{\imspagebegin}{
+
+    \defcaptionname{\languagename}{\contentsname}{TABLE OF CONTENTS}
+    \addtokomafont{chapterentry}{\mdseries}
+
+    \clearpairofpagestyles
+    \ofoot*{\normalsize\pagemark}
+
+
+    \tableofcontents
+
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \listoffigures
+
+    \addcontentsline{toc}{chapter}{\listtablename}
+    \listoftables
+
+
+    \clearpage
+
+    \addcontentsline{toc}{chapter}{List of Abbreviations and Acronyms}
+    \printnoidxglossary[title=List of Abbreviations and Acronyms, style=newlong]
+
+
+
+
+}
+
+
+\newcommand{\imspagekeyws}{
+    \vspace{24pt}
+    \begingroup
+    \let\clearpage\relax
+
+
+
+    \ifdefempty{\paper@keywords}{}{%
+        \centering
+        \chapter*{KEYWORDS}
+        \paperkeywords
+    }%
+    \endgroup
+
+    \vspace{48pt}
+
+
+    \displaysdgicons
+
+}
+
+\newcommand{\imspageback}{
+
+\cleardoublepage
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+
+    \node[inner sep=0pt] at (current page.center){
+        \includegraphics[
+            width=\paperwidth,
+            height=\paperheight        
+        ]{_setup/_images/BackCoverBG.png}
+    };
+    
+
+    \novathree{-11.47cm}{frontgrey}{12}{33.5pt}{12}{27pt}{10}
+    
+    \end{tikzpicture}
+        
+
+}
