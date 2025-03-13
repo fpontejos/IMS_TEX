@@ -1,0 +1,52 @@
+PROGRAMS:
+  MDSAA:
+    EN: "Data Science and Advanced Analytics"
+    PT: "Data Science and Advanced Analytics"
+  MDDM:
+    EN: "Data-Driven Marketing"
+    PT: "Data-Driven Marketing"
+  MEGI:
+    EN: "Statistics and Information Management"
+    PT: "Estatística e Gestão Informação"
+  MGI:
+    EN: "Information Management"
+    PT: "Gestão de Informação"
+  msin:
+    EN: "Master Degree Program in"
+    PT: "Mestrado em"
+  by:
+    EN: "by"
+    PT: "por"
+  supby:
+    EN: "Supervised by"
+    PT: "Orientada por"
+  sdg:
+    EN: "Sustainable Development Goals (SDG)"
+    PT: "Objetivos do Desenvolvimento Sustentável (ODS)"
+  kw:
+    EN: "Keywords"
+    PT: "Palavras-Chave"
+  toc:
+    EN: "Table of Contents"
+    PT: "Índice"
+  lot:
+    EN: "List of Tables"
+    PT: "Índice de Tabelas"
+  lof:
+    EN: "List of Figures"
+    PT: "Índice de Figuras"
+  loaa:
+    EN: "List of Acronyms and Abbreviations"
+    PT: "Lista de Siglas e Abreviaturas"
+  bib:
+    EN: "Bibliographical References"
+    PT: "Referéncias Bibliográficas"
+  app:
+    EN: "Appendix"
+    PT: "Apéndice"
+  ann:
+    EN: "Annex"
+    PT: "Anexo"
+  # TERM:
+  #   EN: ""
+  #   PT: ""
