@@ -36,7 +36,18 @@
   footskip=4ex
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[style=authoryear, 
+backend=bibtex, 
+natbib=true, 
+maxbibnames=99,
+mincitenames=1,
+maxcitenames=2
+]{biblatex}
 
+        
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
@@ -55,8 +66,6 @@
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
-
-% \usepackage[style=apa, backend=biber]{biblatex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,6 +88,12 @@
 \RequirePackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{calc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IMS Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \RequirePackage{_setup/imscommands}
 
