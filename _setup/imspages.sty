@@ -82,7 +82,7 @@
             anchor=north,
             text width=18cm
         ] (Title2) at ($(current page.center)+(0cm,-4pt)$){  % \textheight)$){ 
-            \textcolor{frontgrey}{\uppercase{\textbf{\papertitle}}}};
+            \textcolor{frontgrey}{\textbf{\imsMakeUpper{\papertitle}}}};
         }
 
         { \fontsize{16}{16}\selectfont
@@ -143,8 +143,8 @@
             \fontsize{12}{-8}\selectfont%
 
             {%\setstretch{1.15}
-                \textbf{\papertitle}}
-
+                {\textbf{\imsMakeUpper{\papertitle}}}}
+                
             \vspace{4pt}
 
             {\papersubtitle}
