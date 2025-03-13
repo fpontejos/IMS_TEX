@@ -144,7 +144,7 @@
 
             {%\setstretch{1.15}
                 {\textbf{\imsMakeUpper{\papertitle}}}}
-                
+
             \vspace{4pt}
 
             {\papersubtitle}
@@ -217,7 +217,7 @@
 
 }
 
-\newcommand{\imspagebegin}{
+\newcommand{\imspagetoc}{
 
     \defcaptionname{\languagename}{\contentsname}{TABLE OF CONTENTS}
     \addtokomafont{chapterentry}{\mdseries}
@@ -228,11 +228,11 @@
 
     \tableofcontents
 
-    \addcontentsline{toc}{chapter}{\listfigurename}
     \listoffigures
+    \addcontentsline{toc}{chapter}{\listfigurename}
 
-    \addcontentsline{toc}{chapter}{\listtablename}
     \listoftables
+    \addcontentsline{toc}{chapter}{\listtablename}
 
 
     \clearpage
