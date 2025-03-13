@@ -12,15 +12,25 @@
 \usepackage{microtype}
 \usepackage{setspace}
 
-\usepackage{blindtext}
-
 \usepackage[T1]{fontenc}
-\usepackage{fontspec}
 
-\setmainfont{Carlito}
-\setsansfont{Carlito}
-\setmonofont{Courier New}
+% Set up Arial separately for the \arial command
+\IfFileExists{uarial.sty}{
+  \usepackage{uarial}
+  \newcommand{\arial}{\fontfamily{ua1}\selectfont}
+}{
+  \IfFileExists{arial.sty}{
+    \usepackage{arial}
+    \newcommand{\arial}{\fontfamily{arial}\selectfont}
+  }{
+    % If Arial is not available, define \arial to use Helvetica (similar to Arial)
+    \newcommand{\arial}{\fontfamily{phv}\selectfont}
+  }
+}
 
+% Try to use carlito with pdflatex if available
+\usepackage{carlito}
+\renewcommand{\familydefault}{\sfdefault}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Section, chapter headings %%

@@ -41,9 +41,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[british]{babel}
 
-\usepackage{polyglossia}
-\setdefaultlanguage[variant=uk]{english}
+% \usepackage{polyglossia}
+% \setdefaultlanguage[variant=uk]{english}
 
 \usepackage[hidelinks]{hyperref}
 
@@ -55,7 +56,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
-\usepackage[style=apa, backend=biber]{biblatex}
+% \usepackage[style=apa, backend=biber]{biblatex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
