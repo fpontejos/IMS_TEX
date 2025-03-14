@@ -52,10 +52,7 @@ maxcitenames=2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[british]{babel}
 
-% \usepackage{polyglossia}
-% \setdefaultlanguage[variant=uk]{english}
 
 \usepackage[hidelinks]{hyperref}
 

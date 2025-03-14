@@ -37,10 +37,6 @@
 \DeclareStringOption[_setup/_images/SDG_icons/]{sdgiconpath}
 \DeclareStringOption[1.5cm]{sdgiconsize}
 
-% Define choice key for language
-\DeclareVoidOption{EN}{\def\paper@language{EN}}
-\DeclareVoidOption{PT}{\def\paper@language{PT}}
-
 % Process the options
 \ProcessKeyvalOptions*
 
@@ -48,13 +44,8 @@
 \newif\ifpaper@hassubtitle
 \ifdefempty{\paper@subtitle}{\paper@hassubtitlefalse}{\paper@hassubtitletrue}
 
-% Validate language option (EN or PT only)
-\ifboolexpr{test {\ifstrequal{\paper@language}{EN}} or test {\ifstrequal{\paper@language}{PT}}}{}{%
-  \PackageWarning{imsoptions}{Invalid language '\paper@language'. Using default 'EN'.}%
-  \def\paper@language{EN}%
-}
 
-% Getter commands - optimized to be direct
+% Getter commands 
 \newcommand*{\paperauthor}{\paper@author}
 \newcommand*{\papertitle}{\paper@title}
 \newcommand*{\papersubtitle}{\paper@subtitle}
@@ -70,40 +61,21 @@
 \newcommand*{\papersdgiconsize}{\paper@sdgiconsize}
 \newcommand*{\paperworktype}{\paper@worktype}
 
-% Setter commands - optimized with argument validation where needed
-\newcommand*{\setpaperauthor}[1]{\def\paper@author{#1}}
-\newcommand*{\setpapertitle}[1]{\def\paper@title{#1}}
-\newcommand*{\setpapersubtitle}[1]{%
-  \def\paper@subtitle{#1}%
-  \ifdefempty{#1}{\paper@hassubtitlefalse}{\paper@hassubtitletrue}%
-}
-\newcommand*{\setpapersupervisor}[1]{\def\paper@supervisor{#1}}
-\newcommand*{\setpaperprogramacronym}[1]{\def\paper@programacronym{#1}}
-\newcommand*{\setpaperprogramfullname}[1]{\def\paper@programfullname{#1}}
-\newcommand*{\setpaperprogramspecialization}[1]{\def\paper@programspecialization{#1}}
-\newcommand*{\setpapersdgvalues}[1]{\def\paper@sdgvalues{#1}}
-\newcommand*{\setpaperkeywords}[1]{\def\paper@keywords{#1}}
-\newcommand*{\setpaperlanguage}[1]{%
-  \ifboolexpr{test {\ifstrequal{#1}{EN}} or test {\ifstrequal{#1}{PT}}}{%
-    \def\paper@language{#1}%
-  }{%
-    \PackageWarning{imsoptions}{Invalid language '#1'. Using default 'EN'.}%
-    \def\paper@language{EN}%
-  }%
-}
-\newcommand*{\setpaperdate}[1]{\def\paper@date{#1}}
-\newcommand*{\setpaperdraftmode}{\paper@drafttrue}
-\newcommand*{\setpaperprintmode}{\paper@draftfalse}
-\newcommand*{\setpapersdgiconpath}[1]{\def\paper@sdgiconpath{#1}}
-\newcommand*{\setpapersdgiconsize}[1]{\def\paper@sdgiconsize{#1}}
-\newcommand*{\setpaperworktype}[1]{\def\paper@worktype{#1}}
 
 % Conditional commands
 \newcommand*{\ifDraft}[2]{\ifpaper@draft #1\else #2\fi}
 \newcommand*{\ifPrint}[2]{\ifpaper@draft #2\else #1\fi}
-\newcommand*{\ifEnglish}[2]{\ifstrequal{\paper@language}{EN}{#1}{#2}}
-\newcommand*{\ifPortuguese}[2]{\ifstrequal{\paper@language}{PT}{#1}{#2}}
+\newcommand*{\ifEnglish}[2]{\expandafter\ifstrequal\expandafter{\paper@language}{EN}{#1}{#2}}
+\newcommand*{\ifPortuguese}[2]{\expandafter\ifstrequal\expandafter{\paper@language}{PT}{#1}{#2}}
 \newcommand*{\ifHasSubtitle}[2]{\ifpaper@hassubtitle #1\else #2\fi}
+
+\ifPortuguese{
+  \usepackage[portuguese]{babel}
+}{
+  \usepackage[english]{babel}
+}
+
+\usepackage{csquotes}
 
 % SDG selection check
 \newcommand*{\ifsdgselected}[3]{%
@@ -113,7 +85,12 @@
 % Display SDG icons
 \newcommand*{\displaysdgicons}{%
   \ifdefempty{\paper@sdgvalues}{}{%
-    {\large\textbf{Sustainable Development Goals (SDG):}}%
+    \ifEnglish{
+      {\large\textbf{Sustainable Development Goals (SDG):}}%
+    }{
+      {\large\textbf{Objetivos do Desenvolvimento Sustentável (ODS):}}%
+    }
+    
     \begin{figure}[h!]%
       \foreach \sdg in \paper@sdgvalues {%
         \ifnum\sdg<10 %

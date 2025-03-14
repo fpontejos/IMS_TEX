@@ -20,6 +20,13 @@
     \author{\paperauthor}
     \date{\paperdate}
 
+    \addto\captionsenglish{%
+        \renewcommand{\appendixname}{Appendix}%
+    }
+    \addto\captionsportuguese{%
+        \renewcommand{\appendixname}{Apéndice}%
+    }
+
 
     \input{Contents/Chapters/0_Frontmatter/0_Glossaries}
 
@@ -34,6 +41,7 @@
     \frenchspacing
     \raggedbottom
     \pagestyle{plain}
+
         
 }
 
@@ -219,7 +227,9 @@
 
 \newcommand{\imspagetoc}{
 
-    \defcaptionname{\languagename}{\contentsname}{TABLE OF CONTENTS}
+\defcaptionname{english}{\contentsname}{Table of Contents}
+\defcaptionname{portuguese}{\contentsname}{Índice}
+
     \addtokomafont{chapterentry}{\mdseries}
 
     \clearpairofpagestyles
@@ -237,11 +247,9 @@
 
     \clearpage
 
-    \addcontentsline{toc}{chapter}{List of Abbreviations and Acronyms}
-    \printnoidxglossary[title=List of Abbreviations and Acronyms, style=newlong]
-
-
-
+    \newcommand{\imsloabb}{\ifEnglish{List of Abbreviations and Acronyms}{Lista de Siglas e Abreviaturas}}
+    \printnoidxglossary[title=\imsloabb, style=newlong]
+    \addcontentsline{toc}{chapter}{\imsloabb}
 
 }
 
@@ -255,7 +263,9 @@
 
     \ifdefempty{\paper@keywords}{}{%
         \centering
-        \chapter*{KEYWORDS}
+
+        \chapter*{\ifEnglish{Keywords}{Palavras-Chave}}
+        
         \paperkeywords
     }%
     \endgroup
@@ -290,3 +300,13 @@
         
 
 }
+
+\newcommand{\imspagebib}{
+
+\newcommand{\imsbibtitle}{\ifEnglish{Bibliographical References}{Referéncias Bibliográficas}}
+
+\printbibliography[heading=bibintoc, title=\imsbibtitle]
+
+}
+
+\endinput
