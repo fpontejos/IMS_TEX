@@ -40,11 +40,11 @@
 
   \renewcommand*\raggedsection{\centering}
   \RedeclareSectionCommand[
-      font={\centering},
-      beforeskip=6pt,
-      afterskip=16pt,
+    font={\centering},
+    beforeskip=6pt,
+    afterskip=16pt,
   ]{chapter}
-  
+
   \setkomafont{chapter}{\color{black}\fontsize{16bp}{18bp}\selectfont}%
 
 }
@@ -83,16 +83,16 @@
   % no indent before the longtable:
   \setlength\LTleft{0pt}%
   \renewenvironment{theglossary}%
-    {%
-      \begin{longtable}
-        {
-          @{}>{\raggedright}
-            p{\dimexpr\textwidth-\glsdescwidth-2\tabcolsep\relax}
-          p{\glsdescwidth}
-          @{}
-        }
-    }%
-    {\end{longtable}}%
+  {%
+    \begin{longtable}
+      {
+      @{}>{\raggedright}
+      p{\dimexpr\textwidth-\glsdescwidth-2\tabcolsep\relax}
+      p{\glsdescwidth}
+      @{}
+      }
+      }%
+      {\end{longtable}}%
 
 }
 
@@ -108,18 +108,18 @@
 \usepackage{listings} % Package for code listings
 
 \lstdefinestyle{mystyle}{
-    commentstyle=\color{green!50!black},
-    keywordstyle=\color{magenta},
-    stringstyle=\color{purple},
-    basicstyle=\ttfamily\footnotesize,
-    language=Python,           % Set language
-    basicstyle=\ttfamily,      % Use a monospaced font
-    numbers=left,              % Line numbers on the left
-    numberstyle=\tiny\color{red}, % Line number style
-    frame=single,              % Add a frame around the code
-    captionpos=t,              % Caption for the listing
-    label={lst:example},       % Label for referencing
-    escapeinside={(*@}{@*)}    % Escape sequence for LaTeX inside code
+  commentstyle=\color{green!50!black},
+  keywordstyle=\color{magenta},
+  stringstyle=\color{purple},
+  basicstyle=\ttfamily\footnotesize,
+  language=Python,           % Set language
+  basicstyle=\ttfamily,      % Use a monospaced font
+  numbers=left,              % Line numbers on the left
+  numberstyle=\tiny\color{red}, % Line number style
+  frame=single,              % Add a frame around the code
+  captionpos=t,              % Caption for the listing
+  label={lst:example},       % Label for referencing
+  escapeinside={(*@}{@*)}    % Escape sequence for LaTeX inside code
 }
 
 \lstset{style=mystyle}

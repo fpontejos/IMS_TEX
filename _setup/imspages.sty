@@ -30,10 +30,10 @@
 
     \input{Contents/Chapters/0_Frontmatter/0_Glossaries}
 
-    \expandafter\hypersetup\expandafter{ 
-            pdfauthor={\paperauthor},
-            pdftitle={\papertitle}
-            }
+    \expandafter\hypersetup\expandafter{
+        pdfauthor={\paperauthor},
+        pdftitle={\papertitle}
+    }
 
 
     \frenchspacing
@@ -143,10 +143,10 @@
                         text width=\textwidth
                     ] (presentedtext) at ($(current page.center)+(0cm,-.5cm)$){
                         {\paperworktype\
-                        \imsexpandterm{presented}{\paperlanguage}
-                        \imsexpandterm{\paperprogramacronym}{\paperlanguage}
-                        \imsexpandterm{specialization}{\paperlanguage}
-                        \paperprogramspecialization}
+                                \imsexpandterm{presented}{\paperlanguage}
+                                \imsexpandterm{\paperprogramacronym}{\paperlanguage}
+                                \imsexpandterm{specialization}{\paperlanguage}
+                                \paperprogramspecialization}
                     };
                 }
 
@@ -216,20 +216,20 @@
 
 \newcommand{\imspagecontent}{
 
-\listoffigures
-\addcontentsline{toc}{chapter}{\listfigurename}
+    \listoffigures
+    \addcontentsline{toc}{chapter}{\listfigurename}
 
-\listoftables
-\addcontentsline{toc}{chapter}{\listtablename}
+    \listoftables
+    \addcontentsline{toc}{chapter}{\listtablename}
 
 
-\clearpage
+    \clearpage
 
-\newcommand{\imsloabb}{\ifEnglish{List of Abbreviations and Acronyms}{Lista de Siglas e Abreviaturas}}
-\printnoidxglossary[title=\imsloabb, style=newlong]
-\addcontentsline{toc}{chapter}{\imsloabb}
+    \newcommand{\imsloabb}{\ifEnglish{List of Abbreviations and Acronyms}{Lista de Siglas e Abreviaturas}}
+    \printnoidxglossary[title=\imsloabb, style=newlong]
+    \addcontentsline{toc}{chapter}{\imsloabb}
 
-\imspagedraft
+    \imspagedraft
 }
 
 
@@ -258,33 +258,33 @@
 
 \newcommand{\imspageback}{
 
-\cleardoublepage
+    \cleardoublepage
 
-\thispagestyle{empty}
+    \thispagestyle{empty}
 
-\begin{tikzpicture}[remember picture,overlay]
+    \begin{tikzpicture}[remember picture,overlay]
 
 
-    \node[inner sep=0pt] at (current page.center){
-        \includegraphics[
-            width=\paperwidth,
-            height=\paperheight        
-        ]{_setup/_images/BackCoverBG.png}
-    };
-    
+        \node[inner sep=0pt] at (current page.center){
+            \includegraphics[
+                width=\paperwidth,
+                height=\paperheight
+            ]{_setup/_images/BackCoverBG.png}
+        };
 
-    \novathree{-11.47cm}{frontgrey}{12}{33.5pt}{12}{27pt}{10}
-    
+
+        \novathree{-11.47cm}{frontgrey}{12}{33.5pt}{12}{27pt}{10}
+
     \end{tikzpicture}
-        
+
 
 }
 
 \newcommand{\imspagebib}{
 
-\newcommand{\imsbibtitle}{\ifEnglish{Bibliographical References}{Referéncias Bibliográficas}}
+    \newcommand{\imsbibtitle}{\ifEnglish{Bibliographical References}{Referéncias Bibliográficas}}
 
-\printbibliography[heading=bibintoc, title=\imsbibtitle]
+    \printbibliography[heading=bibintoc, title=\imsbibtitle]
 
 }
 
