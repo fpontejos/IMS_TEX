@@ -70,5 +70,12 @@
 
 \newcommand{\imsFrontPath}[2]{\_setup/\_covers/\_generated/pdf/#1\_#2\_Cover.pdf}
 
+\newcommand{\imspagedraft}{
+    \ifDraft{
+        \cfoot*[\textcolor{red}{\textbf{DRAFT}}]{DRAFT}
+        \chead*[\textcolor{red}{\textbf{DRAFT}}]{DRAFT}
+    }{}
+}
+
 
 \endinput
