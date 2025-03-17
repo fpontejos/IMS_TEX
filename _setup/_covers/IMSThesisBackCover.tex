@@ -1,0 +1,27 @@
+\documentclass{imscover}
+% MUST be compiled with lualatex
+
+\thispagestyle{empty}
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+
+\begin{tikzpicture}[remember picture,overlay]
+
+
+    \node[inner sep=0pt] at (current page.center){
+        \includegraphics[
+            width=\paperwidth,
+            height=\paperheight
+        ]{../../_setup/_images/BackCoverBG.png}
+    };
+
+
+    \novathree{-11.47cm}{frontgrey}{12}{33.5pt}{12}{27pt}{10}
+
+\end{tikzpicture}
+
+\end{document}
