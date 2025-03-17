@@ -40,7 +40,7 @@
     \raggedbottom
     \pagestyle{plain}
 
-        
+    \imspagedraft
 }
 
 \newcommand{\imspagecover}{
@@ -199,8 +199,8 @@
 
 \newcommand{\imspagetoc}{
 
-\defcaptionname{english}{\contentsname}{Table of Contents}
-\defcaptionname{portuguese}{\contentsname}{Índice}
+    \defcaptionname{english}{\contentsname}{Table of Contents}
+    \defcaptionname{portuguese}{\contentsname}{Índice}
 
     \addtokomafont{chapterentry}{\mdseries}
 
@@ -210,19 +210,32 @@
 
     \tableofcontents
 
-    \listoffigures
-    \addcontentsline{toc}{chapter}{\listfigurename}
 
-    \listoftables
-    \addcontentsline{toc}{chapter}{\listtablename}
+}
+
+\newcommand{\imspagedraft}{
+    \ifDraft{
+        \cfoot*[\textcolor{red}{\textbf{DRAFT}}]{DRAFT}
+        \chead*[\textcolor{red}{\textbf{DRAFT}}]{DRAFT}
+    }{}
+}
+
+\newcommand{\imspagecontent}{
+
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
 
 
-    \clearpage
+\clearpage
 
-    \newcommand{\imsloabb}{\ifEnglish{List of Abbreviations and Acronyms}{Lista de Siglas e Abreviaturas}}
-    \printnoidxglossary[title=\imsloabb, style=newlong]
-    \addcontentsline{toc}{chapter}{\imsloabb}
+\newcommand{\imsloabb}{\ifEnglish{List of Abbreviations and Acronyms}{Lista de Siglas e Abreviaturas}}
+\printnoidxglossary[title=\imsloabb, style=newlong]
+\addcontentsline{toc}{chapter}{\imsloabb}
 
+\imspagedraft
 }
 
 

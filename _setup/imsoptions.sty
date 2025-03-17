@@ -103,23 +103,4 @@
   }%
 }
 
-% Create watermark for draft mode
-\newcommand*{\paperDraftWatermark}{%
-  \ifpaper@draft{%
-    \AtBeginDocument{%
-      \AddToShipoutPictureBG{%
-        \AtPageCenter{%
-          \makebox[0pt]{\rotatebox{45}{%
-            \textcolor{gray!20}{\fontsize{5cm}{5cm}\selectfont DRAFT}%
-          }}%
-        }%
-      }%
-    }%
-  }{}%
-}
-
-
-% Call necessary initialization
-\paperDraftWatermark
-
 \endinput
