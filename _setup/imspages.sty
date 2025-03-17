@@ -30,11 +30,9 @@
 
     \input{Contents/Chapters/0_Frontmatter/0_Glossaries}
 
-    \hypersetup{ 
+    \expandafter\hypersetup\expandafter{ 
             pdfauthor={\paperauthor},
             pdftitle={\papertitle}
-            %pdfsubject={},
-            %pdfkeywords={},
             }
 
 
@@ -55,34 +53,8 @@
             \includegraphics[
                 width=\paperwidth,
                 height=\paperheight
-            ]{_setup/_images/FrontCoverBG.png}
+            ]{\imsFrontPath{\paperprogramacronym}{\paperlanguage}}
         };
-
-
-
-        {\fontsize{140}{120} \arial
-        \node[
-            align=center,
-        ] (Title1) at ($(current page.center)+(0.65cm,6.95cm)$){
-            \textcolor{frontgrey}{{\textbf{\paperprogramacronym}}}
-        };
-        }
-
-        % Node Text
-        { \fontsize{18}{20}\selectfont
-        \node[
-            align=center
-        ] (mestrado) at ($(current page.center)+(0.05cm,3.3cm)$){
-            \textcolor{frontgrey}{Mestrado em}
-        };
-        }
-        { \fontsize{18}{20}\selectfont
-        \node[
-            align=center
-        ] (program) at ($(current page.center)+(0.05cm,2.05cm)$){
-            \textcolor{frontgrey}{\textbf{\paperprogramfullname}}
-        };
-        }
 
         { \fontsize{17}{17}\selectfont
         \node[
@@ -127,11 +99,10 @@
             align=flush center, below of = masterwork,
             yshift=2pt,
             text=frontgrey
-        ] (presentedas) {presented as partial requirement for obtaining a
-            Master's Degree in \paperprogramfullname};
+        ] (presentedas) {
+            \imsexpandterm{presented}{\paperlanguage}
+            \imsexpandterm{\paperprogramacronym}{\paperlanguage}};
         }
-        \novathree{-10.85cm}{frontgrey}{12}{30pt}{12}{27pt}{10}
-
 
     \end{tikzpicture}
 
@@ -172,9 +143,10 @@
                         text width=\textwidth
                     ] (presentedtext) at ($(current page.center)+(0cm,-.5cm)$){
                         {\paperworktype\
-                                presented as partial requirement for obtaining the
-                                Master's degree in \paperprogramfullname,
-                                with a specialization in \paperprogramspecialization}
+                        \imsexpandterm{presented}{\paperlanguage}
+                        \imsexpandterm{\paperprogramacronym}{\paperlanguage}
+                        \imsexpandterm{specialization}{\paperlanguage}
+                        \paperprogramspecialization}
                     };
                 }
 
@@ -184,7 +156,7 @@
                         % draw, 
                         text width=\textwidth
                     ] (supervisedby) at ($(current page.center)+(0cm,-3cm)$){
-                        {\textbf{Supervised by}}
+                        {\textbf{\imsexpandterm{supby}{\paperlanguage}}}
                     };
                 }
 
@@ -265,7 +237,7 @@
         \centering
 
         \chapter*{\ifEnglish{Keywords}{Palavras-Chave}}
-        
+
         \paperkeywords
     }%
     \endgroup

@@ -26,6 +26,8 @@
 }
 
 \usepackage{_setup/imsstyles}
+\usepackage{_setup/imslocal}
+
 
 \usepackage[
     a4paper,
