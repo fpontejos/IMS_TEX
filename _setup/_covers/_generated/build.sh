@@ -15,6 +15,7 @@ filenames=(
     "MEGI_PT_Cover"
     "MGI_EN_Cover"
     "MGI_PT_Cover"
+    "PHD_Cover"
 )
 
 # Process each filename

@@ -1,0 +1,86 @@
+
+\documentclass{../imscover}
+
+
+\newfontfamily{\arialphd}{Arial}[Ligatures=NoCommon]
+\newfontfamily{\calibriphd}{Calibri}[LetterSpace=-1.75, Kerning=On, Ligatures=NoCommon]
+
+\newfontfamily{\calibriboldphd}{Calibri Bold}[LetterSpace=1., Kerning=Off, Ligatures=NoCommon]%FakeStretch=1.04]
+\setmainfont{Calibri}[Ligatures=NoCommon]
+\setsansfont{Calibri}[Ligatures=NoCommon]
+
+\setmonofont{Courier New}
+
+
+
+\newcommand*{\paperprogramacronym}{DOCTORAL PROGRAMME}
+\newcommand*{\paperprogramfullname}{Information Management}
+\newcommand*{\papersubmitted}{A thesis submitted in partial fulfillment of the requirements 
+for the degree of Doctor in Information Management}
+\usepackage{blindtext}
+
+\usepackage{setspace}
+\hyphenpenalty=10000
+\setstretch{1.5}
+
+
+\newcommand{\imsfooterphd}[7]{
+    { \fontsize{#3}{0} \node[font=\calibriboldphd, text=#2, align=center] (nline1) at ($(current page.center)+(0cm,#1)$){NOVA Information Management School};}
+    { \fontsize{#5}{0} \node[align=center, font=\calibriboldphd, below = of nline1, text=#2, yshift=#4] (nline2) {Instituto Superior de Estatística e Gestão de Informação};}
+    { \fontsize{#7}{0} \node[align=center, below = of nline2, text=#2, yshift=#6] (nline3) {Universidade Nova de Lisboa};}
+}
+
+\begin{document}
+
+\pagestyle{plain}
+
+\newcommand*{\imscoverpath}{../../../_setup/_images/FrontCoverBGv2.png}
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+
+    \node[inner sep=0pt] at (current page.center){
+        \includegraphics[
+            width=\paperwidth,
+            height=\paperheight
+        ]{\imscoverpath}
+    };
+
+
+
+    {\fontsize{48}{36} \arialphd
+    \node[
+        align=center,
+        text width=15cm
+    ] (Title1) at ($(current page.center)+(0.cm,6.5cm)$){
+        \textcolor{frontgrey}{{\textbf{\paperprogramacronym}}}
+    };
+    }
+
+    { \fontsize{24}{24} \selectfont
+    \node[
+        align=center
+    ] (program) at ($(current page.center)+(0.1cm,2.65cm)$){
+        \textcolor{frontgrey}{\textbf{\paperprogramfullname}}
+    };
+    }
+
+
+    % Node Text
+    { \fontsize{12.15}{12.15} \calibri \selectfont
+    \node[
+        align=center,
+        text width=16cm, anchor=north
+    ] (submitted) at ($(current page.south)+(0.05cm,6.8cm)$){
+        \textcolor{frontgrey}{\papersubmitted}
+    };
+    }
+    
+    \imsfooterphd{-10.98cm}{frontgrey}{12}{32pt}{12}{27pt}{10}
+    
+\end{tikzpicture}
+
+
+\end{document}

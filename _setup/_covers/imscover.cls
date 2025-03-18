@@ -33,8 +33,20 @@
 
 \newfontfamily{\arial}{Arial}
 
-\setmainfont{Carlito}
-\setsansfont{Carlito}
+\newfontfamily{\calibri}{Calibri}[LetterSpace=-1.75, Kerning=On, Ligatures=NoCommon]
+
+% \fontspec{Calibri Bold}[FakeStretch=2]
+\newfontfamily{\calibribold}{Calibri Bold}[
+    % LetterSpace=1.75, 
+    Kerning=Off, 
+    Ligatures=NoCommon]%FakeStretch=1.04]
+
+
+% \setmainfont{Carlito}
+% \setsansfont{Carlito}
+\setmainfont{Calibri}%[FakeStretch=1.2]
+\setsansfont{Calibri}
+
 \setmonofont{Courier New}
 
 
@@ -63,8 +75,8 @@
 
 
 \newcommand{\novathree}[7]{
-    { \fontsize{#3}{0} \node[font=\bfseries\sffamily, text=#2, align=center] (nline1) at ($(current page.center)+(0cm,#1)$){NOVA Information Management School};}
-    { \fontsize{#5}{0} \node[align=center, font=\bfseries\sffamily, below = of nline1, text=#2, yshift=#4] (nline2) {Instituto Superior de Estatística e Gestão de Informação};}
+    { \fontsize{#3}{0} \node[font=\bfseries\calibribold, text=#2, align=center] (nline1) at ($(current page.center)+(0cm,#1)$){NOVA Information Management School};}
+    { \fontsize{#5}{0} \node[align=center, font=\bfseries\calibribold, below = of nline1, text=#2, yshift=#4] (nline2) {Instituto Superior de Estatística e Gestão de Informação};}
     { \fontsize{#7}{0} \node[align=center, below = of nline2, text=#2, yshift=#6] (nline3) {Universidade Nova de Lisboa};}
 }
 
@@ -110,9 +122,16 @@
         };
         }
 
-        \novathree{-10.85cm}{frontgrey}{12}{30pt}{12}{27pt}{10}
 
 
+    \end{tikzpicture}
+
+}
+
+
+\newcommand{\imspagecoverfooter}[1]{
+    \begin{tikzpicture}[remember picture,overlay]
+        \novathree{-10.88cm}{frontgrey}{12}{29.5pt}{12}{27pt}{10}
     \end{tikzpicture}
 
 }
