@@ -32,6 +32,7 @@
 \DeclareStringOption[]{sdgvalues}
 \DeclareStringOption[]{keywords}
 \DeclareStringOption[EN]{language}
+\DeclareStringOption[pdflatex]{build}
 \DeclareStringOption[\today]{date}
 \DeclareStringOption[Thesis]{worktype}
 \DeclareStringOption[_setup/_images/SDG_icons/]{sdgiconpath}
@@ -56,6 +57,7 @@
 \newcommand*{\papersdgvalues}{\paper@sdgvalues}
 \newcommand*{\paperkeywords}{\paper@keywords}
 \newcommand*{\paperlanguage}{\paper@language}
+\newcommand*{\paperbuild}{\paper@build}
 \newcommand*{\paperdate}{\paper@date}
 \newcommand*{\papersdgiconpath}{\paper@sdgiconpath}
 \newcommand*{\papersdgiconsize}{\paper@sdgiconsize}
@@ -68,6 +70,9 @@
 \newcommand*{\ifEnglish}[2]{\expandafter\ifstrequal\expandafter{\paper@language}{EN}{#1}{#2}}
 \newcommand*{\ifPortuguese}[2]{\expandafter\ifstrequal\expandafter{\paper@language}{PT}{#1}{#2}}
 \newcommand*{\ifHasSubtitle}[2]{\ifpaper@hassubtitle #1\else #2\fi}
+
+\newcommand*{\ifLua}[2]{\expandafter\ifstrequal\expandafter{\paper@build}{lualatex}{#1}{#2}}
+
 
 \ifPortuguese{
   \usepackage[portuguese]{babel}
@@ -102,5 +107,45 @@
     \end{figure}%
   }%
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Setup Typography based on LaTeX engine %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifLua{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% pdfLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{fontspec}
+  \newfontfamily{\arial}{Arial}  
+  \newfontfamily{\calibri}{Calibri}[LetterSpace=-1.75, Kerning=On, Ligatures=NoCommon]
+  \newfontfamily{\calibribold}{Calibri Bold}[
+      Kerning=Off, 
+      Ligatures=NoCommon]
+  \setmainfont{Calibri}
+  \setsansfont{Calibri}
+  }{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LuaLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Set up Arial separately for the \arial command
+  \IfFileExists{uarial.sty}{
+    \RequirePackage{uarial}
+    \newcommand{\arial}{\fontfamily{ua1}\selectfont}
+  }{
+    \IfFileExists{arial.sty}{
+      \RequirePackage{arial}
+      \newcommand{\arial}{\fontfamily{arial}\selectfont}
+    }{
+      % If Arial is not available, define \arial to use Helvetica (similar to Arial)
+      \newcommand{\arial}{\fontfamily{phv}\selectfont}
+    }
+  }
+  % Try to use carlito with pdflatex if available
+  \RequirePackage{carlito}
+  \renewcommand{\familydefault}{\sfdefault}
+}
+
 
 \endinput

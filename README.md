@@ -1,6 +1,6 @@
 # Important Note About This Template
 
-***This times out on Overleaf***
+***This may time out on Overleaf***
 
 This LaTeX template was implemented to the best of my ability to be as close as possible to the given Word templates. There may be some differences; please consult your professors/supervisors in case there are any issues or discrepancies.
 
@@ -12,16 +12,41 @@ This was heavily inspired by the work of https://github.com/joaomlourenco/novath
 
 ## Usage Guidelines
 
-Make sure you compile using `LuaLaTeX`:
+### Using Overleaf:
+
+Make sure you compile using `pdfLaTeX`:
 
 Click on the Menu button on Overleaf:
 
 ![LuaLaTeX](./_docs/img/overleaf-menu.png)
 
-Select LuaLaTeX:
+Select pdfLaTeX:
 
-![LuaLaTeX](./_docs/img/overleaf-lualatex.png)
+![pdfLaTeX](./_docs/img/overleaf-pdflatex.png)
 
+### Using VSCode:
+
+Tested using the `LaTeX Workshop` [extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
+
+Add the following entries to `"latex-workshop.latex.recipes": []`
+
+```json
+{
+   "name": "pdflatex -> bibtex -> pdflatex * 2",
+   "tools": [
+         "pdflatex",
+         "bibtex",
+         "pdflatex",
+         "pdflatex"
+   ]
+},
+{
+   "name": "latexmk (lualatex)",
+   "tools": [
+         "lualatexmk"
+   ]
+},
+```
 
 
 ### Important - What to Modify
@@ -66,7 +91,7 @@ This template provides a standardized format for academic works at NOVA IMS, inc
 
 1. Edit `Thesis_ROOT.tex` to set your thesis options
 2. Write your content in the respective chapters in the `Contents/` folder
-3. Compile the document using LuaLaTeX
+3. Compile the document using pdfLaTeX (important if using Overleaf)
 
 ## Setting Thesis Options
 
@@ -86,6 +111,7 @@ The template uses a key-value system for document options. Set these in the main
   sdgvalues={4,9,13},
   keywords={Keyword 1; Keyword 2; Keyword 3},
   language={EN},
+  build={pdflatex},
   date={15-06-2025},
   draft=true,
   worktype={Master Thesis}
@@ -106,6 +132,7 @@ The template uses a key-value system for document options. Set these in the main
 | `sdgvalues` | UN Sustainable Development Goals numbers (1-17) | "" (empty) |
 | `keywords` | Keywords for your thesis (semicolon separated) | "" (empty) |
 | `language` | Document language: EN or PT | "EN" |
+| `build` | LaTeX engine: LuaLaTex or pdfLaTeX | "pdflatex" |
 | `date` | Submission date (DD-MM-YYYY) | \today |
 | `draft` | Draft mode (true/false) | true |
 | `worktype` | Type of work | "Master Thesis" |
