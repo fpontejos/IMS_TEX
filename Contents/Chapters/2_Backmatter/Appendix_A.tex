@@ -4,11 +4,12 @@
 \annotapx{A} % This "A" should match the Appendix "A" letter above.
 
 
-Here's Table \ref{tab:a:example} in the Appendix. Note that the numbering is different from Table \ref{tab:example}.
+Here's Table \ref{tab:apxexample} in the Appendix. Note that the numbering is different from Table \ref{tab:example}.
 
 \begin{table}[htbp]
     \centering
     \caption{Example of a table in the Appendix.}
+    \label{tab:apxexample}
 
     \begin{tabular}{|c|c|c|c|c|}
         \hline
@@ -24,13 +25,12 @@ Here's Table \ref{tab:a:example} in the Appendix. Note that the numbering is dif
         A8 & B8 & C8 & D8 & E8 \\
         \hline
     \end{tabular}
-    \label{tab:a:example}
 \end{table}
 
 
 \begin{algorithm}
     \caption{Algorithm in the Appendix}
-    \label{alg:a:bubble}
+    \label{alg:apxbubble}
     \begin{algorithmic}[1]
         \STATE \textbf{Input:} An array $A$ of length $n$
         \STATE \textbf{Output:} Sorted array $A$

@@ -61,7 +61,7 @@
             align=flush center,
             anchor=north,
             text width=18cm
-        ] (Title2) at ($(current page.center)+(0cm,-4pt)$){  % \textheight)$){ 
+        ] (Title2) at ($(current page.center)+(0cm,-4pt)$){
             \textcolor{frontgrey}{\textbf{\imsMakeUpper{\papertitle}}}};
         }
 
@@ -243,8 +243,8 @@
     \ifdefempty{\paper@keywords}{}{%
         \centering
 
-        \chapter*{\ifEnglish{Keywords}{Palavras-Chave}}
-
+        {\ifEnglish{\chapter*{Keywords}}{\chapter*{Palavras-Chave}}}
+        
         \paperkeywords
     }%
     \endgroup

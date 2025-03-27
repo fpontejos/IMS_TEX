@@ -20,6 +20,8 @@
   numbers=enddot
 ]{scrbook}
 
+\usepackage{scrhack}
+
 % Define a new command to set thesis options
 \newcommand{\setthesisoptions}[1]{
   \usepackage[#1]{_setup/imsoptions}
